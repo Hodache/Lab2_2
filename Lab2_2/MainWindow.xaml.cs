@@ -23,6 +23,10 @@ namespace Lab2_2
         public MainWindow()
         {
             InitializeComponent();
+
+            // Загружаем сохраненные ранее значения
+            FirstWord.Text = Properties.Settings.Default.FirstWord;
+            SecondWord.Text = Properties.Settings.Default.SecondWord;
         }
 
         // Реакция на нажатия Enter
@@ -69,6 +73,7 @@ namespace Lab2_2
             }
         }
 
+        // Задание
         private void taskBtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Даны два слова. Для каждой буквы первого слова определить, " +
@@ -76,6 +81,15 @@ namespace Lab2_2
                 "Повторяющиеся буквы первого слова не рассматривать. " +
                 "Например, если заданные слова процессор и информация, " +
                 "то для букв первого из них ответом должно быть: нет да да да нет нет.", "Задание");
+        }
+
+        // Сохранение введенных в поля значений перед закрытием
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.FirstWord = FirstWord.Text;
+            Properties.Settings.Default.SecondWord = SecondWord.Text;
+
+            Properties.Settings.Default.Save();
         }
     }
 
@@ -96,20 +110,18 @@ namespace Lab2_2
             {
                 ch = word1[i];
 
-                // Если первое вхождение символа было раньше
-                if (word1.IndexOf(ch) < i)
+                // Если символ встречается впервые
+                if (word1.IndexOf(ch) == i)
                 {
-                    continue;
-                }
-
-                // Если во втором слове не нашлось буквы, пишем "нет"
-                if (word2.IndexOf(ch) == -1)
-                {
-                    answer += "нет ";
-                }
-                else // Иначе "да"
-                {
-                    answer += "да ";
+                    // Если во втором слове не нашлось буквы, пишем "нет"
+                    if (word2.IndexOf(ch) == -1)
+                    {
+                        answer += "нет ";
+                    }
+                    else // Иначе "да"
+                    {
+                        answer += "да ";
+                    }
                 }
             }
 

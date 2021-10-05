@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab2_2"
         mc:Ignorable="d"
-        Title="Сравнение слов" Height="272" Width="343" ResizeMode="NoResize">
+        Title="Сравнение слов" Height="272" Width="343" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Content="Первое слово" HorizontalAlignment="Left" Margin="21,27,0,0" VerticalAlignment="Top" FontSize="20" Width="141"/>
         <Label Content="Второе слово" HorizontalAlignment="Left" Margin="21,69,0,0" VerticalAlignment="Top" FontSize="20" Width="141"/>
-        <TextBox MaxLength="15" x:Name="FirstWord" Margin="182,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="20" KeyDown="FirstWord_KeyDown" HorizontalAlignment="Left" Height="30"/>
-        <TextBox MaxLength="15" x:Name="SecondWord" Margin="182,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="20" KeyDown="SecondWord_KeyDown" HorizontalAlignment="Left" Height="30"/>
+        <TextBox MaxLength="14" x:Name="FirstWord" Margin="182,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="20" KeyDown="FirstWord_KeyDown" HorizontalAlignment="Left" Height="30"/>
+        <TextBox MaxLength="14" x:Name="SecondWord" Margin="182,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="20" KeyDown="SecondWord_KeyDown" HorizontalAlignment="Left" Height="30"/>
         <Button x:Name="ClearBtn" Content="Очистить поля" HorizontalAlignment="Left" Margin="22,123,0,0" VerticalAlignment="Top" Height="34" Width="140" FontSize="20" Click="ClearBtn_Click"/>
         <Button x:Name="CompareBtn" Content="Сравнить" HorizontalAlignment="Left" Margin="182,123,0,0" VerticalAlignment="Top" Height="34" Width="140" FontSize="20" Click="CompareBtn_Click"/>
         <TextBlock x:Name="answerTextBox" HorizontalAlignment="Center" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="71" Width="300" FontSize="20"/>
